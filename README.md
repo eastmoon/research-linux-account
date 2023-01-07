@@ -114,32 +114,24 @@
 
 ### 新增帳號
 
-本項目執行指令 ```demo1.bat```
+本項目執行指令 ```demo1.bat```，主要[原始碼](./src/demo1.sh)
 
 + 建立一般用戶
-```
-# 建立一般用戶
-useradd -u 1500 -g users -m testuser
-# 顯示用戶家目錄
-ll -d /home/testuser
-# 顯示設定檔中的用戶資訊
-grep testuser /etc/passwd /etc/shadow /etc/group
-```
+    - 依據不同的作業系統，其預設會有差異，可以參考 ```adduser -D```
+    - 在 Ubuntu 會強制不建立家目錄
+    - 另外使用容器啟動的環境預設登入環境為 ```/bin/sh```，這部分可以替換
 
 + 建立系統用戶
-```
-# 建立系統用戶
-useradd -r systemuser
-# 顯示用戶家目錄，但系統用戶不會強制建立家目錄
-ll -d /home/systemuser
-# 顯示設定檔中的用戶資訊
-grep systemuser /etc/passwd /etc/shadow /etc/group
-```
+    - 系統用戶預設就不會建立家目錄
+    - 此段不設定初始群組，可以在群組中查詢到與用戶名相同的新群組
 
 + 修改密碼
+    - 任何新建的用戶皆未設定密碼，在未設定的情況下將無法登入
     - 不同作業系統提供的無互動變更密碼，期方式並不相同
     - 在 CentOS 7+ 用 ```echo password | passwd --stdin username```
     - 在 Ubuntu 用 ```echo username:password | chpasswd```
+
++ 切換帳戶測試請以手動自行輸入並檢查
 
 ### 用戶共管目錄
 
