@@ -114,6 +114,33 @@
 
 ### 新增帳號
 
+本項目執行指令 ```demo1.bat```
+
++ 建立一般用戶
+```
+# 建立一般用戶
+useradd -u 1500 -g users -m testuser
+# 顯示用戶家目錄
+ll -d /home/testuser
+# 顯示設定檔中的用戶資訊
+grep testuser /etc/passwd /etc/shadow /etc/group
+```
+
++ 建立系統用戶
+```
+# 建立系統用戶
+useradd -r systemuser
+# 顯示用戶家目錄，但系統用戶不會強制建立家目錄
+ll -d /home/systemuser
+# 顯示設定檔中的用戶資訊
+grep systemuser /etc/passwd /etc/shadow /etc/group
+```
+
++ 修改密碼
+    - 不同作業系統提供的無互動變更密碼，期方式並不相同
+    - 在 CentOS 7+ 用 ```echo password | passwd --stdin username```
+    - 在 Ubuntu 用 ```echo username:password | chpasswd```
+
 ### 用戶共管目錄
 
 ### 應用程式限定用戶
