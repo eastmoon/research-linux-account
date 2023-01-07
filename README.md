@@ -114,7 +114,7 @@
 
 ### 新增帳號
 
-本項目執行指令 ```demo1.bat```，主要[原始碼](./src/demo1.sh)
+本項目執行指令 ```demo.bat 1```，主要[原始碼](./src/demo1.sh)
 
 + 建立一般用戶
     - 依據不同的作業系統，其預設會有差異，可以參考 ```adduser -D```
@@ -131,7 +131,7 @@
     - 在 CentOS 7+ 用 ```echo password | passwd --stdin username```
     - 在 Ubuntu 用 ```echo username:password | chpasswd```
 
-+ 切換帳戶測試請以手動自行輸入並檢查
++ 切換帳戶測試，在轉換至 testuser 時請輸入設定的密碼便於後續測試
 
 ### 用戶共管目錄
 

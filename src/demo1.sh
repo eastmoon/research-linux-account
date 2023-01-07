@@ -19,17 +19,13 @@ ls -d /home/systemuser
 grep systemuser /etc/passwd /etc/shadow /etc/group
 
 echo "---------------------"
-echo "Change normal user password"
+echo "Change normal user password ( 12345678 )"
+# 變更 testuser 用戶的密碼為 12345678
 echo testuser:12345678 | chpasswd
 
-bash
+echo "---------------------"
+echo "Change user for test, systemuser to testuser need input password"
+su -c "id && su -c 'id' testuser" systemuser
+
 # 以下測試請手動輸入
-# 切換至新增系統用戶
-# su systemuser
-# 顯示帳號資訊
-# id
-# 切換至一般用戶
-# 因為前面設定的密碼，會需要輸入密碼才可登入
-# su testuser
-# 顯示帳號資訊
-# id 
+bash
