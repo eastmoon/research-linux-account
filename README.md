@@ -202,6 +202,12 @@
 
 對於 SFTP 用戶端，在 Linux 環境中，只要安裝 openssh，即可包括 sftp 指令，在此項目中透過 CLI 封裝 sftp 操作程序。
 
+在測試中，最大問題會在於 SFTP 用戶的目錄權限：
++ ```/data``` 目錄擁有為 ```root:sftpusers```，權限為 ```ug=rwx,o=rx``` 775
++ ```/data/sftp``` 目錄擁有為 ```sftpuser:sftpusers```，權限為 ```ug=rwx,o=rx``` 775
+
+透過這樣設定可以確保相同群組 ```sftpusers``` 的用戶皆可以讀寫執行於 ```/data/sftp```；若讓用戶 ```sftpuser``` 可以有獨立不受其他用戶與同群組用戶操作的目錄，則可調整 ```/data/sftp``` 權限為 ```u=rwx,go=rx``` 755。
+
 ## 文獻
 
 + Linux 教學文獻
