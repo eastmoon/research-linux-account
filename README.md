@@ -191,6 +191,17 @@
 
 ### SFTP 帳號設定
 
+本項目執行指令 ```demo-sftp.bat```，主要伺服器[容器](./conf/docker/sftp-server/Dockerfile)與[原始碼](./src/sftp-server.sh)、用戶端[容器](./conf/docker/sftp-client/Dockerfile)與[原始碼](./src/sftp-client.sh)
+
+安全檔案傳輸協定 ( SFTP、SSH File Transfer Protocol 或 Secret File Transfer Protocol ) 是一種檔案傳輸協議，此協議包括兩個部分 SSH 與 FTP 兩個技術：
+
++ FTP ( File Transfer Protocol )，是用於通過互聯網傳輸檔案的客戶/伺服器網路協定
++ SSH ( Secure Shell Protocol )，是基於非對稱加密來實踐身分驗證的協定
+
+對於 SFTP 伺服器，在 Linux 環境中，建立 SFTP 需安裝 ssh-server，並建立相應的 SFTP 群組與用戶，並將相關資訊寫入 sshd_config 後重啟 SSH 服務即可。
+
+對於 SFTP 用戶端，在 Linux 環境中，只要安裝 openssh，即可包括 sftp 指令，在此項目中透過 CLI 封裝 sftp 操作程序。
+
 ## 文獻
 
 + Linux 教學文獻
@@ -207,3 +218,8 @@
     - [Where are the passwords of the users located in Linux?](https://www.cyberciti.biz/faq/where-are-the-passwords-of-the-users-located-in-linux/)
     - [How to Change User Password in Linux](https://linuxize.com/post/how-to-change-user-password-in-linux/)
     - [System Users and Human Users in Linux Explained with Examples](https://www.cyberithub.com/system-users-and-human-users-in-linux-explained-with-examples/)
++ SFTP
+    - [什麼是 SFTP？](https://www.ipswitch.com/tw/resources/best-practices/sftp-server)
+    - [How to set up an SFTP server on Linux](https://www.techrepublic.com/article/how-to-set-up-an-sftp-server-on-linux/)
+    - [Setup SFTP Server Ubuntu](https://linuxhint.com/setup-sftp-server-ubuntu/)
+    - [Installing an SFTP server](https://www.ibm.com/docs/en/wdfrhcw/1.4.0?topic=admin-installing-sftp-server)
